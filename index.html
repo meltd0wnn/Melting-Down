@@ -15,11 +15,11 @@
     </head>
     <body>
     <!--LOGO DA PÁGINA-->
-    <div class=logo>
+    <div class="menu"><div class=logo>
         <img src="resources/logo.svg" title="just melting d0wn"/>
-    </div>
+    </div></div>
     <!--SCRIPT DOS SLIDES-->
-    <div class="slider-container">
+    <div class="slider-container hide">
         <div class="slick-slider">
             <div class="slide">
                 <iframe src="resources/teste.pdf">
@@ -34,14 +34,17 @@
             </div>
         </div>
     </div>
-
+    <script>document.querySelector("body > div.menu > div").addEventListener("click", function () { [].map.call(document.querySelectorAll(".slider-container"), function (e) { e.classList.toggle("hide") }) })</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js"></script>
     <script src="slick/slick.min.js"></script>
-
     <script>
-        $('.slick-slider').slick();
+        $('.slick-slider').slick(
+        {
+            dots:true,
+            autoplay:true,
+            autoplaySpeed:2000,
+        })
     </script>
-
     </body>
 </html>
