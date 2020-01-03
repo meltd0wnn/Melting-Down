@@ -1,25 +1,27 @@
 body{
     background: #093028;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #237A57, #093028);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #237A57, #093028); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right, rgb(29, 104, 74), #0d473c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgb(29, 104, 74), #0d473c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
+/*(to right, #237A57, #093028)*/
 .logo{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     overflow: hidden;
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: pointer;
 }
 
-.logo:hover{
+.logo:hover, .item:hover{
     opacity: 1 !important;
 }
 
 .logo img{
     width:500px;
+    max-width: 100%;
+    height: auto;
 }
 
 .slider-container{
@@ -35,15 +37,79 @@ body{
     margin:0 auto;
 }
 
+.contact{
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item{
+    height: 130px; width: 130px;
+    background: url(resources/tileset.png);
+    opacity: 0.6;
+}
+
+.contact>div{
+    width: 130px; height: 130px;
+    margin: 60px;
+    flex:1 1 auto;
+}
+
 iframe{
     width: 90%;
     height: 300px;
     margin: 0 auto;
     display: block;
 }
+
 .hide {display: none !important }
-@media screen and (max-width:625px) {
-    .logo {
-        width: 60px;border: 10px solid transparent;outline: 10px solid #fff 
+
+@media screen and (max-width:625px) { 
+    .slider-container{
+        position: absolute;
+        left: 50%;
+        top: 20px;
+        transform: translateX(-50%);
+        width:80%;
+        margin: 0 auto;
+        max-height: 20%;
+        display: none;
+    }
+    .logo{
+        top: 25%;
+        transform: translate(-50%,-25%);
+    }
+    .logo img{
+        width:500px;
+        max-width: 625px;
+        height: auto;
+    }
+    .slide { height: 250px; max-width: 100%;}
+    .slide img{max-width: 100%; height: auto;}
+    .contact{
+        position: absolute;
+        left: 50%;
+        bottom: calc((50vh - 156.25px) / 2);
+        top: auto;
+        transform: translate(-50%,50%);
+        width: 100%;
+        height: 130px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .contact>div{
+        margin: 0 auto;
+    }
+    .item{
+        margin: auto;
+        border: solid #ffffff 2px;
+        border-radius: 12px;
     }
 }
