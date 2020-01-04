@@ -12,11 +12,11 @@ body{
     overflow: hidden;
     opacity: 0.4;
     cursor: pointer;
+    transition: .4s;
 }
 
 .logo:hover, .item:hover{
     opacity: 1 !important;
-    animation: .3s;
 }
 
 .logo img{
@@ -54,6 +54,7 @@ body{
     height: 130px; width: 130px;
     background: url(resources/tileset.png);
     opacity: 0.6;
+    transition: .4s;
 }
 
 .contact>div{
