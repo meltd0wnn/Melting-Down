@@ -12,14 +12,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Álvaro 'meltd0wn' Faustino">
         <meta property="og:image" content="resources/logo2.jpg">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     </head>
     <body>
     <!--LOGO DA PÁGINA-->
-    <div class="menu"><div class=logo>
+    <div class="menu"><div class="logo">
         <img src="resources/logo.svg" title="just melting d0wn (click me)"/>
     </div></div>
     <!--CONTATOS-->
-    <div class="contact hide">
+    <div class="contact">
             <div><a href="https://www.github.com/meltd0wnn" target="_blank">
                 <div class="item" style="background-position: 66.66% bottom;" title="My GitHub"></div>
             </a></div>
@@ -35,7 +38,7 @@
             </a></div>
     </div>
     <!--SCRIPT DOS SLIDES-->
-    <div class="slider-container hide">
+    <div class="slider-container">
         <div class="slick-slider">
             <div class="slide">
                 <iframe src="resources/teste.pdf">
@@ -50,9 +53,22 @@
             </div>
         </div>
     </div>
-    <script>document.querySelector("body > div.menu > div").addEventListener("click", function () { [].map.call(document.querySelectorAll(".slider-container, .contact"), function (e) { e.classList.toggle("hide") }) })</script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js"></script>
+    <script>
+    if(screen.width <= 625){
+        var state = true;
+        $( function(){ 
+            $("body > div.menu > div").click( function() {
+                $(".slider-container").hide();
+                $(".contact > div").fadeToggle(300);
+                $(".logo").css(state ? {top: "25%", transform: "translate(-50%,-25%)"} : {top: "50%", transform: "translate(-50%,-50%)"});
+                state = !state;
+            });
+        });
+    }
+    else{
+    $( function(){ $("body > div.menu > div").click(function(){ $(".slider-container, .contact > div").fadeToggle(300); }) });
+    }
+    </script>
     <script src="slick/slick.min.js"></script>
     <script>
         $('.slick-slider').slick(

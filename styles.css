@@ -32,6 +32,7 @@ body{
     transform: translateY(-50%);
     width:500px;
     margin: 0 auto;
+    display: none;
 }
 
 .slide img{
@@ -60,7 +61,8 @@ body{
 .contact>div{
     width: 130px; height: 130px;
     margin: 60px;
-    flex:1 1 auto;
+    flex: 1 1 auto;
+    display: none;
 }
 
 iframe{
@@ -70,7 +72,9 @@ iframe{
     display: block;
 }
 
-.hide {display: none !important }
+.hide {
+    display: none !important;
+}
 
 @media screen and (max-width:625px) { 
     .slider-container{
@@ -86,8 +90,12 @@ iframe{
     .slide { height: 250px; max-width: 100%;}
     .slide img{max-width: 100%; height: auto;}
     .logo{
-        top: 25%;
-        transform: translate(-50%,-25%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        overflow: hidden;
+        opacity: 0.4;
     }
     .logo img{
         width: 625px;
@@ -109,6 +117,7 @@ iframe{
     .contact>div{
         margin: auto;
         width: auto; height: 20vw; max-height: 100%;
+        display: none;
     }
     .item{
         margin: auto;
